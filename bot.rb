@@ -37,15 +37,16 @@ def respondToTweet(id) #1044932227790974976
 
   responses = [
     "Congrats on your original tweet! Here's a medal to mark your achievement: \u{1F4A9} ", #poop emoji
-    "",
+    "woop",
     ""
   ]
 
-  $client.update(responses[0],  in_reply_to_status_id: id)
-  puts "sent tweet"
+  $client.update(responses[1],  in_reply_to_status_id: id)
   $tweetCount += 1
+  puts "sent tweet " + $tweetCount.to_s + " With ID: "+ id.to_s
+
+
 
 end
 
 getFollowers()
-puts "Sent " + $tweetcount.to_s + " tweets"
