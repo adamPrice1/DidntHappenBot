@@ -1,16 +1,16 @@
 
 #!/usr/bin/env ruby
 require "Twitter"
+load'Keys.rb'
 
 $client = nil
-
-
+$tweetCount = 0
 
 $client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = 
-  config.consumer_secret     =
-  config.access_token        =
-  config.access_token_secret =
+  config.consumer_key        = $keys["TWITTER_KEY"]
+  config.consumer_secret     = $keys["TWITTER_SECRET"]
+  config.access_token        = $keys["TWITTER_TOKEN"]
+  config.access_token_secret = $keys["TWITTER_TOKEN_SECRET"]
 end
 
 def getFollowers()
@@ -42,7 +42,10 @@ def respondToTweet(id) #1044932227790974976
   ]
 
   $client.update(responses[0],  in_reply_to_status_id: id)
+  puts "sent tweet"
+  $tweetCount += 1
 
 end
 
 getFollowers()
+puts "Sent " + $tweetcount.to_s + " tweets"
