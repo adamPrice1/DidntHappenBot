@@ -50,7 +50,7 @@ def respondToTweet(id) #1044932227790974976
     "Haha you're so funny man, #madbanter #lads #stella",
   ]
 
-  $client.update(responses[0],  in_reply_to_status_id: id)
+  $client.update(responses[rand(0..(responses.length-1))],  in_reply_to_status_id: id)
   $tweetCount += 1
   puts "sent tweet " + $tweetCount.to_s + " With ID: "+ id.to_s
 
