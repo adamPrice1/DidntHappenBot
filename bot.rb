@@ -24,6 +24,7 @@ def getFollowers()
 
     end
   rescue Twitter::Error::TooManyRequests => error
+    puts "sleeping for 15"
     sleep error.rate_limit.reset_in + 1
     retry
   end
@@ -43,6 +44,7 @@ def getDidntHappenTweets(handle)
 
       end
     rescue Twitter::Error::TooManyRequests => error
+      puts "sleeping for 15"
       sleep error.rate_limit.reset_in + 1
       retry
     end
@@ -53,14 +55,22 @@ end
 def respondToTweet(id) #1044932227790974976
 
   responses = [
-    "Congrats on your original tweet! Here's a medal to mark your achievement: \u{1F4A9} ", #poop emoji
+    #"Congrats on your original tweet! Here's a medal to mark your achievement: \u{1F4A9} ", #poop emoji
     "Didn't happen nonce.",
     "Haha you're so funny man, #madbanter #lads #stella",
+    "Comedic genius of the year ^",
+    "Haha you really got em with this one champ",
+    "You're so cool, wish I was as funny as you",
+    "shit comment pal",
+    "anyone:
+     you: Didn't happen",
+     "I'm Didn't happen bot, and I only reply to absolute nonces"
   ]
 
   begin
     $client.update(responses[rand(0..(responses.length-1))],  in_reply_to_status_id: id)
   rescue Twitter::Error::TooManyRequests => error
+    puts "sleeping for 15"
     sleep error.rate_limit.reset_in + 1
     retry
   end
@@ -74,6 +84,7 @@ def isDidntHappenTweet(id)
   begin
     tweet = $client.status(id)
   rescue Twitter::Error::TooManyRequests => error
+    puts "sleeping for 15"
     sleep error.rate_limit.reset_in + 1
     retry
   end
@@ -110,6 +121,7 @@ def probablyNotRespondedToo(id)
       end
     end
   rescue Twitter::Error::TooManyRequests => error
+    puts "sleeping for 15"
     sleep error.rate_limit.reset_in + 1
     retry
   end
