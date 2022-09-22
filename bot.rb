@@ -52,19 +52,16 @@ end
 
 
 
-def respondToTweet(id) #1044932227790974976
+def respondToTweet(id) 
 
   responses = [
-    #"Congrats on your original tweet! Here's a medal to mark your achievement: \u{1F4A9} ", #poop emoji
-    "Didn't happen nonce.",
     "Haha you're so funny man, #madbanter #lads #stella",
     "Comedic genius of the year ^",
     "Haha you really got em with this one champ",
     "You're so cool, wish I was as funny as you",
     "shit comment pal",
     "anyone:
-     you: Didn't happen",
-     "I'm Didn't happen bot, and I only reply to absolute nonces"
+     you: Didn't happen"
   ]
 
   begin
